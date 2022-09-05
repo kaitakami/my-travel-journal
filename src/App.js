@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar";
+import Travel from "./components/Travel";
+import data from "./data";
 
 function App() {
+  const travels = data.map((travel) => (
+    <Travel key={travel.mapsUrl} {...travel} />
+  ));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <a
+        className="website-refferal"
+        href="https://kaitakami.com"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Navbar />
+      </a>
+      <div className="container">{travels}</div>
     </div>
   );
 }
